@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const { number } = require("zod");
 const { required } = require("zod/mini");
-
+require("dotenv").config();
 // ✅ Always handle async connection properly
 mongoose
-  .connect("mongodb+srv://Sayan:2002@cluster0.u8bet2x.mongodb.net/paytm-app")
+  .connect(process.env.DATABASE_URL)
   .then(() => console.log("✅ MongoDB Connection Established"))
   .catch((err) => console.error("❌ MongoDB Connection Failed:", err));
 
